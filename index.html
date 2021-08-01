@@ -1,0 +1,85 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		
+		<meta name="Keywords" content="project, riddle, project pathfinder, internet riddle, solomon project, game, logic, puzzle, notpron, browser game, online, online riddle">
+		<meta name="Description" content="The Project is long riddle game requiring lot of patience, many ways of thinking and even more time."> 
+
+		<title>Project Pathfinder - Online Riddle</title>	
+		
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if (document.all||document.getElementById){
+				var thetitle=document.title
+				document.title=''
+			}
+			var data="0123456789";
+			var done=1;
+			function statusIn(text){
+				decrypt(text,3,10);
+			}
+
+			function statusOut(){
+				self.status='';
+				done=1;
+			}
+
+			function decrypt(text, max, delay){
+				if (done){
+					done = 0;
+					decrypt_helper(text, max, delay,  0, max);
+					}			
+			}
+
+			function decrypt_helper(text, runs_left, delay, charvar, max){
+				if (!done){
+				runs_left = runs_left - 1;
+				var status = text.substring(0,charvar);
+				for(var current_char = charvar; current_char < text.length; current_char++){
+					status += data.charAt(Math.round(Math.random()*data.length));
+					}
+				document.title = status;
+				var rerun = "decrypt_helper('" + text + "'," + runs_left + "," + delay + "," + charvar + "," + max + ");"
+				var new_char = charvar + 1;
+				var next_char = "decrypt_helper('" + text + "'," + max + "," + delay + "," + new_char + "," + max + ");"
+				if(runs_left > 0){
+					setTimeout(rerun, delay);
+					}
+				else{
+					if (charvar < text.length){
+						setTimeout(next_char, Math.round(delay*(charvar+3)/(charvar+1)));
+						}
+					else
+						{
+						done = 1;
+						}
+					}
+				}
+			}
+			
+			if (document.all||document.getElementById)
+			statusIn(thetitle)
+			
+		/*]]> */
+		</script>
+	</head>
+	
+	<body style="background-color:black;">
+	
+	<p style="color:white">
+		</p><center>
+		<div>	
+			<img src="./index_files/gate.jpg" style="border:0px solid #000000" alt="one.jpg"><br><br>
+			<span style="font-family: arial; color:#FFFFFF; font-size:small">
+			
+
+			Welcome to the Project.<br><br>
+			<a href="Tutorial/lessonone.html">Start Tutorial</a><br>
+			<a href="Chapter/preparation.html">Start Game 1</a>
+			</span>
+			
+		</div>
+		</center>
+	
+
+</body></html>
